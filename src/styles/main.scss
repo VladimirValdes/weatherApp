@@ -1,0 +1,70 @@
+
+
+// Abstracts files
+
+@import 'abstracts/palette';
+@import 'abstracts/mixins';
+
+
+// Core files
+@import 'core/typography';
+@import 'core/normalize';
+
+//layout
+
+@import 'layout/grid';
+
+
+// responsive 
+
+@import 'responsive/responsive';
+
+
+
+html {
+    
+    font-family: $font-primary;
+    font-size: 62.5%;
+    scrollbar-color: #6969dd #e0e0e0;
+    scrollbar-width: thin;
+    
+    
+}
+
+
+
+body {
+
+    .wrapper {
+
+        @include holy-grail();
+
+        @include respond-above(sm){
+              
+                grid-template-columns: repeat(12, 1fr);
+
+                .aside {
+                    grid-column: 1 / span 12;
+                }
+
+                .main {
+                    grid-column: 1 / span 12;
+                    grid-row: 2 / 4;
+                }
+
+                .footer {
+                    grid-column: 5 / span 12;
+                    grid-row: 3 / 4;
+
+                    background-color: green;
+                }
+
+ 
+        }
+
+
+
+}
+   
+
+}

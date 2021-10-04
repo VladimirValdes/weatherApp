@@ -1,0 +1,11 @@
+
+@mixin holy-grail {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;        
+}
+
+@mixin split-screen {
+    display: grid;
+    grid-template-rows: auto;
+}

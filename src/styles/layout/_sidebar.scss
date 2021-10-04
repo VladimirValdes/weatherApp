@@ -1,0 +1,134 @@
+
+
+@import 'core/typography';
+@import 'abstracts/palette';
+@import 'abstracts/mixins';
+
+
+.aside {
+    position: fixed;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 345px;
+    height: 100%;
+    background-color: #1E213A;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: 0.3s ease-out;
+
+    &--active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    .aside-close {
+        padding: 1rem;
+        border: none;
+        text-align: end;
+        background-color: transparent;
+        cursor: pointer;
+        
+        span {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background-image: url('/assets/icons/close.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+
+    .search-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-top: 2rem;
+
+        .search__btn {
+            @include base-button( #3C47E9, $c-primary, $w-md, auto, auto, 0, 1.5rem);
+            padding: 1.2rem;
+        }
+    }
+
+
+    .search-input {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 210px;
+        background-color: transparent;
+        border: 1px solid #d6d7d7;
+
+        &__input {
+            flex: 1 0 auto;
+            padding: 1rem;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            font-weight: $w-md;
+            font-size: 1.7rem;
+            color: $c-primary;
+
+            &:placeholder-shown {
+                color: $c-tertiary;
+            }
+        }
+
+        &__btn {
+            border: none;
+            background-color: transparent;
+            padding: 0 0.5rem;
+
+            .icon-search {
+                filter: invert(0.6);
+            }
+        }
+    }
+
+    .results {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 1.5rem;
+        padding-top: 3rem;
+        background-color: transparent;
+        opacity: 1;
+        visibility: visible;
+
+
+        &__item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            @include base-text(1.5rem, $w-md, $c-primary);
+
+
+            cursor: pointer;
+
+            &:hover {
+                 border: 1px solid $c-tertiary;
+                 span {
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    background-image: url('/assets/icons/arrow.svg');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    margin-left: auto;
+                }
+            }   
+
+            
+        }
+    }
+}

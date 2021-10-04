@@ -1,0 +1,26 @@
+
+@mixin  base-text($fs, $fw, $c, $t-lgn: start, $lh: normal) {
+    font-size: $fs;
+    text-align: $t-lgn;
+    font-weight: $fw;
+    line-height: $lh;
+    color: $c;
+}
+
+@mixin  base-button($bk, $color, $f-w, $with, $height, $b-r, $f-z) {
+
+    @content;
+
+    width: $with;
+    height: $height;
+    font-size: $f-z;
+    font-weight: $f-w;
+    color: $color;
+    background-color: $bk;
+    border: 1px solid transparent;
+    border-radius: $b-r;
+    letter-spacing: 1px;
+    text-align: center;
+
+    cursor: pointer;
+}

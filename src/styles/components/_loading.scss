@@ -1,0 +1,24 @@
+@import 'abstracts/palette';
+@import 'abstracts/mixins';
+
+
+// Core files
+@import 'core/typography';
+
+
+.loading {
+    position: absolute;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: $c-secondary;
+    color: white;
+    font-size: 3.5rem;
+    font-weight: $w-bg;
+    text-align: center;
+
+}
