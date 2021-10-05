@@ -14,11 +14,14 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class HomeComponent implements OnInit {
 
   weekWeather: List[] = [];
+  // weekWe: List[] = [];
+
   cityW: WeatherbyCity;
   location: string = '';
   loading = true;
   convertD = false;
   active: boolean;
+  currentHour = new Date();
 
   constructor(public sidebarService: SidebarService,
               public weatherService: WeatherService,
@@ -27,6 +30,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    let date = new Date();
+
+
+    console.log('La hora: ',date.getHours())
       this.getGlobalWeather();
       this.mapBoxService.coords.subscribe( ([ long, lat ]: number[]) => {
         this.getCurrentWeather(lat, long );
@@ -47,16 +54,20 @@ export class HomeComponent implements OnInit {
 
   getWeekWeather( lat = 0, lon = 0) {
     this.weatherService.getcurrentWeather( lat, lon).subscribe( resp => {
+
+
       
       this.location = resp.city.name;
      
+      this.newWeek( resp.list );
+      // this.showDate(resp.list);
 
-      if (this.weekWeather.length > 0) {
-         this.weekWeather = [];
-      }
+      // if (this.weekWeather.length > 0) {
+      //    this.weekWeather = [];
+      // }
 
    
-      this.weekWeather = this.selectDays( resp.list, 0);
+      // this.weekWeather = this.selectDays( resp.list, 0);
 
       this.loading = false;
 
@@ -64,27 +75,38 @@ export class HomeComponent implements OnInit {
   }
 
   getCurrentWeather( lat = 0, lon = 0 ){
-
       this.weatherService.getWeatherByCity( lat, lon).subscribe( resp => {
           this.cityW = resp;
           this.cityW.dt = this.cityW.dt * 1000;
       })
   }
 
-  selectDays(list: List[], n: number, item = 1):  List[] {
-    if ( n === 5) {
-      return [];
-    } else {
-      const days = this.selectDays(list, n + 1, item + 8);
-      list[item].dt = list[item].dt * 1000;
-      days.unshift(list[item]);
-      return days; 
-    }
 
+
+
+
+  showDate( list: List[] ){
+    list.forEach( ( el: List, index ) => {
+       let date = new Date( el.dt );
+       console.log( `Fecha ${ index }`,date)
+
+    });
   }
 
-  convertDegress(){
-      this.convertD != this.convertD;
+  newWeek(list: List[]){
+
+    if ( this.currentHour.getHours()  % 3 === 0) {
+        this.weekWeather = list.filter( day => {
+        day.dt = day.dt * 1000;
+        let date = new Date( day.dt );
+        return  date.getHours() === this.currentHour.getHours();
+      });
+
+      this.showDate(this.weekWeather);
+    } else {
+      this.currentHour.setTime( 2 * 60 * 60 * 1000 );
+      console.log('Hours :v ', this.currentHour.getHours())
+    }
   }
 
   
