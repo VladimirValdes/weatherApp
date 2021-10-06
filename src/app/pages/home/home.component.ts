@@ -14,14 +14,12 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class HomeComponent implements OnInit {
 
   weekWeather: List[] = [];
-  // weekWe: List[] = [];
 
   cityW: WeatherbyCity;
   location: string = '';
   loading = true;
   convertD = false;
-  active: boolean;
-  currentHour = new Date();
+  currentDate = new Date();
 
   constructor(public sidebarService: SidebarService,
               public weatherService: WeatherService,
@@ -30,15 +28,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let date = new Date();
-
-
-    console.log('La hora: ',date.getHours())
       this.getGlobalWeather();
+      
       this.mapBoxService.coords.subscribe( ([ long, lat ]: number[]) => {
         this.getCurrentWeather(lat, long );
         this.getWeekWeather(lat, long)
       })
+
+      this.validateHour();
 
   }
 
@@ -54,23 +51,9 @@ export class HomeComponent implements OnInit {
 
   getWeekWeather( lat = 0, lon = 0) {
     this.weatherService.getcurrentWeather( lat, lon).subscribe( resp => {
-
-
-      
-      this.location = resp.city.name;
-     
+      this.location = resp.city.name;   
       this.newWeek( resp.list );
-      // this.showDate(resp.list);
-
-      // if (this.weekWeather.length > 0) {
-      //    this.weekWeather = [];
-      // }
-
-   
-      // this.weekWeather = this.selectDays( resp.list, 0);
-
       this.loading = false;
-
     })
   }
 
@@ -93,20 +76,29 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  newWeek(list: List[]){
+  newWeek(list: List[]) {
 
-    if ( this.currentHour.getHours()  % 3 === 0) {
-        this.weekWeather = list.filter( day => {
+
+    const weatherHour = this.validateHour();
+
+    this.weekWeather = list.filter( day => {
         day.dt = day.dt * 1000;
         let date = new Date( day.dt );
-        return  date.getHours() === this.currentHour.getHours();
-      });
+        return  date.getHours() === weatherHour.getHours();
+    });
 
-      this.showDate(this.weekWeather);
-    } else {
-      this.currentHour.setTime( 2 * 60 * 60 * 1000 );
-      console.log('Hours :v ', this.currentHour.getHours())
-    }
+    this.showDate(this.weekWeather);
+  }
+
+  validateHour( ): Date {
+
+  const updateDate =  ( this.currentDate.getHours() % 3 > 0 ) ? 
+      this.currentDate.setHours( this.currentDate.getHours() - this.currentDate.getHours() % 3 )
+    : this.currentDate
+    
+    console.log(`current Hours ${ new Date( updateDate ).getHours()}`)
+    return new Date( updateDate);
+    
   }
 
   
