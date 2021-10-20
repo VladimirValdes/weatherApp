@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Weather, List, City, WeatherbyCity } from 'src/app/interfaces/weather.interface';
+import { List, WeatherbyCity } from 'src/app/interfaces/weather.interface';
 import { MapBoxService } from 'src/app/services/map-box.service';
 import { SidebarService } from 'src/app/services/sidebar.service';
 import { WeatherService } from 'src/app/services/weather.service';

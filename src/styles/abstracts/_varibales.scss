@@ -1,0 +1,48 @@
+
+@include cssvars((
+    // colors
+    primary-color: #E7E7EB,
+    secondary-color: #1E213A,
+    tertiary-color: #6E707A,
+    // cards-color: #1e2940,
+
+
+    // typopraphy
+    font-family: #{ 'Raleway', sans-serif },
+
+    fs-xl: 3rem,
+    fs-600: 1.95rem,
+    fs-500: 1.56rem,
+    fs-400: 1.25rem,
+
+    l-height-xl: 3.5rem,
+
+    font-weight-sm: 300,
+    font-weight-md: 500,
+    font-weight-lg: 700,
+    font-weight-xl: 900,
+));
+
+
+@media (min-width: 40em) {
+    @include cssvars((
+    // typography
+    
+    fs-xl: 5rem,
+    fs-600: 2.44rem,
+    fs-500: 1.95rem,
+    fs-400: 1.56rem,
+
+    l-height-xl: 5.5rem,
+
+    ));
+}
+
+$fz-sm: 1rem; //p
+$fz-bs: 1.25rem; // h5
+$fz-xmd: 1.56rem; // h4
+$fz-md: 1.95em; //h3
+$fz-bg: 2.44rem; //h2
+$fz-xl: 3rem; //h1
+
+

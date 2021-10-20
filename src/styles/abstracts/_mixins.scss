@@ -24,3 +24,12 @@
 
     cursor: pointer;
 }
+
+
+@mixin cssvars($css_variables, $prefix: pf) {
+    :root {
+        @each $name, $value in $css_variables {
+            --#{$prefix}-#{$name}: #{$value};
+        }
+    }
+}

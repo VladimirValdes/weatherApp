@@ -16,8 +16,8 @@ import { ConvertDegressPipe } from './pipes/convert-degress.pipe';
   declarations: [
     AppComponent,
     HomeComponent,
-    ImagePipe,
-    ConvertDegressPipe
+    // ImagePipe,
+    // ConvertDegressPipe
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<section class="cards">
+    
+    <article
+        *ngFor="let day of weekWeather; let idx = index"
+        class="card">
+            <p class="card__text card__text--title" *ngIf=" idx === 0">Tomorrow</p>
+            <p class="card__text card__text--title" *ngIf=" idx !== 0">{{ day.dt  | date:'ccc d MMM'  }}</p>
+            <img [src]=" day.weather[0].main  | image: day.weather[0].id " class="card__img" [alt]="day.weather[0].description">
+            <div class="card__temps">
+                <p class="card__text">{{ day.main.temp_max | convertDegress: convertD }}</p>
+                <p class="card__text">{{ day.main.temp_min | convertDegress: convertD}}</p>
+            </div>
+    </article>
+</section>
