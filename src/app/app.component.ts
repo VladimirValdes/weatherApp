@@ -10,28 +10,11 @@ import { SidebarService } from './services/sidebar.service';
 })
 export class AppComponent {
   title = 'appnews';
-  places: Feature[] = [];
  
-  constructor( public sidebarService: SidebarService,
-               private mapBoxService: MapBoxService) {
+  constructor() {
     
   }
 
 
-  getPlaces( term: string ){
 
-    console.log( term );
-    this.mapBoxService.getPlace(term).subscribe( places => {
-      this.places = places.features;
-    })
-
-  }
-
-
-  getCoords( coordinates: number[], city: Feature) {
-
-    this.mapBoxService.coords.emit( coordinates );
-    this.sidebarService.showMenu();
-    console.log(`CITY ${ city.text}`)
-  }
 }

@@ -1,52 +1,11 @@
-<div class="wrapper">
-    <aside class="aside"
-        [ngClass]="{'aside--active': sidebarService.activateMenu}">
-
-        <button class="aside-close"
-            (click)="sidebarService.showMenu()">
-            <span></span>
-        </button>
-
-        <div class="search-container">
-            <div class="search-input">
-                <button class="search-input__btn">
-                    <img src="/assets/icons/search.svg" class="icon-search" alt="search">
-                </button>
-               <input
-                  class="search-input__input"
-                  type="search"
-                  name="search-input"
-                  placeholder="Search..."
-                  aria-label="Search"
-                  #term
-                  >
-              
-            </div>
-
-            <button
-             (click)="getPlaces( term.value )"
-              class="search__btn">Search</button>
-        </div>
-
-        <ul class="results">
-            <li
-              *ngFor="let pl of places"
-              class="results__item"
-              (click)="getCoords( pl.center, pl)">
-                {{ pl.place_name }}
-                <span>
-                </span>
-            </li>
-        </ul>
-       
-    </aside>
-    <main class="main">
+<!-- <div class="wrapper"> -->
+ 
     
-        <app-home></app-home>
+    <app-sidebar></app-sidebar>
+    <app-home></app-home>
     
-    </main>
     
     <!-- <footer class="footer">
         <p>Footer</p>
     </footer> -->
-</div>
+<!-- </div> -->

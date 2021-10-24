@@ -1,7 +1,7 @@
 
 
 @import 'core/typography';
-@import 'abstracts/palette';
+// @import 'abstracts/palette';
 @import 'abstracts/mixins';
 
 
@@ -53,7 +53,7 @@
         padding-top: 2rem;
 
         .search__btn {
-            @include base-button( #3C47E9, $c-primary, $w-md, auto, auto, 0, 1.5rem);
+            @include base-button( #3C47E9, var(--pf-primary-color), $w-md, auto, auto, 0, 1.5rem);
             padding: 1.2rem;
         }
     }
@@ -77,10 +77,10 @@
             background-color: transparent;
             font-weight: $w-md;
             font-size: 1.7rem;
-            color: $c-primary;
+            color: var(--pf-primary-color);
 
             &:placeholder-shown {
-                color: $c-tertiary;
+                color: var(--pf-tertiary-color);
             }
         }
 
@@ -110,13 +110,13 @@
             display: flex;
             align-items: center;
             padding: 1rem;
-            @include base-text(1.5rem, $w-md, $c-primary);
+            @include base-text(1.5rem, $w-md, var(--pf-primary-color));
 
 
             cursor: pointer;
 
             &:hover {
-                 border: 1px solid $c-tertiary;
+                 border: 1px solid var(--pf-tertiary-color);
                  span {
                     display: inline-block;
                     width: 20px;

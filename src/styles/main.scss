@@ -4,6 +4,7 @@
 
 @import 'abstracts/palette';
 @import 'abstracts/mixins';
+@import 'abstracts/varibales';
 
 
 // Core files
@@ -32,39 +33,3 @@ html {
 }
 
 
-
-body {
-
-    .wrapper {
-
-        @include holy-grail();
-
-        @include respond-above(sm){
-              
-                grid-template-columns: repeat(12, 1fr);
-
-                .aside {
-                    grid-column: 1 / span 12;
-                }
-
-                .main {
-                    grid-column: 1 / span 12;
-                    grid-row: 2 / 4;
-                }
-
-                .footer {
-                    grid-column: 5 / span 12;
-                    grid-row: 3 / 4;
-
-                    background-color: green;
-                }
-
- 
-        }
-
-
-
-}
-   
-
-}

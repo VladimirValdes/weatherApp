@@ -1,3 +1,5 @@
+@import 'abstracts/mixins';
+
 .cards{
     display: flex;
     flex-wrap: wrap;
@@ -17,11 +19,11 @@
     width: 130px;
     height: 140px;
     padding: 1rem;
-    background-color: $c-secondary;
+    background-color: var(--pf-secondary-color);
 
     &__text {
 
-        @include base-text(1.5rem, $w-md, $c-tertiary);
+        @include base-text(1.5rem, var(--pf-font-weight-md), var(--pf-tertiary-color));
         margin-bottom: 0;
 
         &--title {

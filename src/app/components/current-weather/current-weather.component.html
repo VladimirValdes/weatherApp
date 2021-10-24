@@ -1,0 +1,38 @@
+
+
+<section class="weather-location">
+    <section class="location-header">
+           <button
+              class="btn-header"
+              (click)="sidebarService.showMenu()">
+              Search for places
+            </button>
+            <button
+            (click)="getGlobalWeather()"
+              class="btn-header btn-header--radius"><img
+              src="/assets/icons/location.svg"
+              alt="location">
+            </button>
+    </section>
+    <section class="location-body"
+        *ngIf="cityW">
+        <div class="img-container">
+            <img [src]="cityW.weather[0].main | image: cityW.weather[0].id" class="img" alt="weather">
+        </div>
+        <p class="location-body__text"><span>{{ cityW.main.temp | convertDegress: convertD }}</span></p>
+
+        <p class="location-body__text location-body__text--color">{{ cityW.weather[0].main }}</p>
+    </section>
+
+    <section class="location-footer"
+    *ngIf="cityW">
+        <div class="date">
+            <p class="date__text">Today</p>
+            <p class="date__text">{{ cityW.dt | date:'ccc d MMM' }}</p>
+        </div>
+        <p class="location__text">
+            <span><img src="/assets/icons/gps.svg" alt="location" class="location__icon"></span> 
+           {{ cityW.name }}
+        </p>
+    </section>
+</section>

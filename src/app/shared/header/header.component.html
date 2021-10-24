@@ -1,3 +1,16 @@
-<header>
-    <h1>Header Component</h1>
-</header>
+<section class="header">
+    <div class="header__btns">
+        <button
+        (click)=" convertD = false"
+        [ngClass]="{'btn-temp--active': convertD  === false }"
+          class="btn-temp">
+          °C
+        </button>
+      <button
+        (click)=" convertD = true"
+        [ngClass]="{'btn-temp--active': convertD  === true }"
+         class="btn-temp ">
+          °F
+      </button>
+    </div>
+</section>

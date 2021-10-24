@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem 1rem;
+
+
+    &__btns {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        max-width: 660px;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+    }
+
+    .btn-temp {
+        @include base-button($c-tertiary, $c-primary, $w-bg, 40px, 40px, 50%, 2rem);
+        margin-left: 1rem;
+
+        &--active {
+            background-color:$c-primary;
+            color:#110E3C;
+        }
+    }
+}

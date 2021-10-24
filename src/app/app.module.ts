@@ -4,26 +4,21 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
-import { ComponentsModule } from './components/components.module';
-import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
-import { ImagePipe } from './pipes/image.pipe';
-import { ConvertDegressPipe } from './pipes/convert-degress.pipe';
+import { PagesModule } from './pages/pages.module';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    // ImagePipe,
-    // ConvertDegressPipe
   ],
   imports: [
     BrowserModule,
     SharedModule,
-    ComponentsModule,
-    HttpClientModule
+    HttpClientModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

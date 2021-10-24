@@ -1,80 +1,16 @@
 
-<div 
-    class="loading"
-    *ngIf="loading">
-    Loading...
-</div>
-<div
-    *ngIf="!loading"
-    class="wrapper-home">
-    <section class="weather-location">
-        <section class="location-header">
-               <button
-                  class="btn-header"
-                  (click)="sidebarService.showMenu()">
-                  Search for places
-                </button>
-               <button
-                  (click)="getGlobalWeather()"
-                  class="btn-header btn-header--radius"><img
-                  src="/assets/icons/location.svg"
-                  alt="location">
-                </button>
-        </section>
-        <section class="location-body">
-            <div class="img-container">
-                <img [src]="cityW.weather[0].main | image: cityW.weather[0].id" class="img" alt="weather">
-            </div>
-            <!-- <p class="location-body__text"><span>{{ cityW.main.temp | number: '2.1-1' }}</span>°C</p> -->
-            <p class="location-body__text"><span>{{ cityW.main.temp | convertDegress: convertD }}</span></p>
+<main>
 
-            <p class="location-body__text location-body__text--color">{{ cityW.weather[0].main }}</p>
-        </section>
-
-        <section class="location-footer">
-            <div class="date">
-                <p class="date__text">Today</p>
-                <p class="date__text">{{ cityW.dt | date:'ccc d MMM' }}</p>
-            </div>
-            <p class="location__text">
-                <span><img src="/assets/icons/gps.svg" alt="location" class="location__icon"></span> 
-               {{ cityW.name }}
-            </p>
-        </section>
-    </section>
-    <section class="weather-week">
-        <section class="header">
-            <div class="header__btns">
-                <button
-                (click)=" convertD = false"
-                [ngClass]="{'btn-temp--active': convertD  === false }"
-                  class="btn-temp">
-                  °C
-                </button>
-              <button
-                (click)=" convertD = true"
-                [ngClass]="{'btn-temp--active': convertD  === true }"
-                 class="btn-temp ">
-                  °F
-              </button>
-            </div>
-            <div class="card-container">
-               <article
-                  *ngFor="let day of weekWeather; let idx = index"
-                  class="card">
-                    <p class="card__text card__text--title" *ngIf=" idx === 0">Tomorrow</p>
-                    <p class="card__text card__text--title" *ngIf=" idx !== 0">{{ day.dt  | date:'ccc d MMM'  }}</p>
-                    <img [src]=" day.weather[0].main  | image: day.weather[0].id " class="card__img" [alt]="day.weather[0].description">
-                    <div class="card__temps">
-                        <p class="card__text">{{ day.main.temp_max | convertDegress: convertD }}</p>
-                        <p class="card__text">{{ day.main.temp_min | convertDegress: convertD}}</p>
-                    </div>
-                </article>
-            </div> 
-        </section>
+    <app-current-weather
+      [coordinate]="coordinate"
+      (coordinates)="coordinate = $event">
+    </app-current-weather>
+    <div class="wrapper-home">
+        <app-card-day [coordinate]="coordinate"></app-card-day>
         <section class="main">
             <h2 class="main__title">Today’s Hightlights</h2>
-            <div class="card-container">
+            <div class="main__container"
+                *ngIf="cityW">
                 <article class="card"> 
                     <p class="card__text card__text--title"> Wind status </p>
                     <div class="card__body">
@@ -95,7 +31,7 @@
                         <div class="progress-container">
                             <div
                             [ngStyle]="{'width.%': cityW.main.humidity }"
-                              class="progress">
+                            class="progress">
                             </div>
                         </div>
                         <p class="percent__text percent__text--end">%</p>
@@ -115,7 +51,6 @@
                 </article>
             </div>
         </section>
-    </section>
-</div>
-
-
+    </div>
+    
+</main>
