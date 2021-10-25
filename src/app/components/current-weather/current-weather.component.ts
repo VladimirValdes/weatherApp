@@ -12,13 +12,16 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class CurrentWeatherComponent implements OnInit, OnChanges {
 
   cityW: WeatherbyCity ;
-  convertD = false;
+
   @Input() coordinate: Coord = { 
     lon: 0,
     lat: 0
   };
+  
+  @Input() convertD: boolean = false;
 
   @Output() coordinates = new EventEmitter<Coord>();
+
 
 
 
@@ -37,7 +40,9 @@ export class CurrentWeatherComponent implements OnInit, OnChanges {
           this.getCurrentWeather( this.coordinate.lat, this.coordinate.lon);
           
         }
-      }
+      } else if( changes.convertD && changes.convertD.currentValue ) {
+          this.convertD = changes.convertD.currentValue;
+        }
     }
 
 

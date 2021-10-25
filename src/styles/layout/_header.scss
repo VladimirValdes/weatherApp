@@ -1,9 +1,13 @@
+
+@import 'abstracts/mixins';
+
 .header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
+    padding-bottom: 0;
 
 
     &__btns {
@@ -16,11 +20,11 @@
     }
 
     .btn-temp {
-        @include base-button($c-tertiary, $c-primary, $w-bg, 40px, 40px, 50%, 2rem);
+        @include base-button(var(--pf-tertiary-color), var(--pf-primary-color), var(--pf-font-weight-lg), 40px, 40px, 50%, 2rem);
         margin-left: 1rem;
 
         &--active {
-            background-color:$c-primary;
+            background-color:var(--pf-primary-color);
             color:#110E3C;
         }
     }

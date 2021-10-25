@@ -15,10 +15,8 @@ export class CardDayComponent implements OnChanges {
     lon: 0,
     lat: 0
   };
-
-
-
-  convertD = false;
+ 
+  @Input() convertD: boolean = false;
   
 
   constructor( public weatherService: WeatherService,) { }
@@ -33,6 +31,8 @@ export class CardDayComponent implements OnChanges {
         this.getWeekWeather( this.coordinate.lat, this.coordinate.lon);
         
       }
+    } else if( changes.convertD && changes.convertD.currentValue ) {
+          this.convertD = changes.convertD.currentValue;
     }
   }
 
@@ -54,7 +54,6 @@ export class CardDayComponent implements OnChanges {
         return  date.getHours() === weatherHour.getHours();
     });
 
-    this.showDate(this.weekWeather);
   }
 
   validateHour( ): Date {
@@ -63,17 +62,10 @@ export class CardDayComponent implements OnChanges {
       this.currentDate.setHours( this.currentDate.getHours() - this.currentDate.getHours() % 3 )
     : this.currentDate
     
-    console.log(`current Hours ${ new Date( updateDate ).getHours()}`)
     return new Date( updateDate);
     
   }
 
-  showDate( list: List[] ){
-    list.forEach( ( el: List, index ) => {
-       let date = new Date( el.dt );
-       console.log( `Fecha ${ index }`,date)
 
-    });
-  }
 
 }

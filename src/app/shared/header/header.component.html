@@ -1,14 +1,14 @@
 <section class="header">
     <div class="header__btns">
         <button
-        (click)=" convertD = false"
-        [ngClass]="{'btn-temp--active': convertD  === false }"
+        (click)="convertF()"
+        [ngClass]="{'btn-temp--active': !convertD }"
           class="btn-temp">
           °C
         </button>
       <button
-        (click)=" convertD = true"
-        [ngClass]="{'btn-temp--active': convertD  === true }"
+        (click)="convertF()"
+        [ngClass]="{'btn-temp--active': convertD }"
          class="btn-temp ">
           °F
       </button>

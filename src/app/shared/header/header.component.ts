@@ -1,17 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styles: [
+  styleUrls: [
+    './header.component.scss'
   ]
 })
 export class HeaderComponent implements OnInit {
 
-  convertD: boolean
+  convertD: boolean = false;
+
+  @Output() convert = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  convertF() {
+    this.convertD = !this.convertD;
+    console.log( this.convertD );
+    this.convert.emit( this.convertD );
   }
 
 }

@@ -1,12 +1,24 @@
 
-<main>
+<app-loading *ngIf="loading"></app-loading>
+
+<main *ngIf="!loading">
 
     <app-current-weather
       [coordinate]="coordinate"
+      [convertD] = "convert"
       (coordinates)="coordinate = $event">
     </app-current-weather>
+    
     <div class="wrapper-home">
-        <app-card-day [coordinate]="coordinate"></app-card-day>
+        <app-header
+          (convert)="convert = $event">
+        </app-header>
+
+        <app-card-day 
+            [coordinate]="coordinate"
+            [convertD] = "convert">
+        </app-card-day>
+
         <section class="main">
             <h2 class="main__title">Today’s Hightlights</h2>
             <div class="main__container"

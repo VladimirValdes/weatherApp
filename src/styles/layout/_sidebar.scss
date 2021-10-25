@@ -1,7 +1,6 @@
 
 
 @import 'core/typography';
-// @import 'abstracts/palette';
 @import 'abstracts/mixins';
 
 
@@ -53,7 +52,7 @@
         padding-top: 2rem;
 
         .search__btn {
-            @include base-button( #3C47E9, var(--pf-primary-color), $w-md, auto, auto, 0, 1.5rem);
+            @include base-button( #3C47E9, var(--pf-primary-color), var(--pf-font-weight-md), auto, auto, 0, 1.5rem);
             padding: 1.2rem;
         }
     }
@@ -75,7 +74,7 @@
             border: none;
             outline: none;
             background-color: transparent;
-            font-weight: $w-md;
+            font-weight: var(--pf-font-weight-md);
             font-size: 1.7rem;
             color: var(--pf-primary-color);
 
@@ -110,7 +109,7 @@
             display: flex;
             align-items: center;
             padding: 1rem;
-            @include base-text(1.5rem, $w-md, var(--pf-primary-color));
+            @include base-text(1.5rem, var(--pf-font-weight-md), var(--pf-primary-color));
 
 
             cursor: pointer;

@@ -13,9 +13,9 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class HomeComponent implements OnInit {
 
   weekWeather: List[] = [];
-
-
   cityW: WeatherbyCity;
+  convert: boolean = false;
+  loading: boolean = true;
   coordinate: Coord = {
     lon: 0,
     lat: 0
@@ -26,8 +26,20 @@ export class HomeComponent implements OnInit {
                }
 
   ngOnInit(): void {
+    document.title = 'Weather App'
 
   this.getGlobalWeather();
+  this.mapBoxService.coords.subscribe( coordinates => {
+
+    const [ lon, lat  ] = coordinates;
+    this.coordinate = {
+      lon,
+      lat
+    }
+
+    this.getCurrentWeather( lat, lon);
+
+  })
       
   }
 
@@ -41,6 +53,7 @@ export class HomeComponent implements OnInit {
         lat: latitude
       }
       this.getCurrentWeather( latitude, longitude);
+      this.loading = false;
     });
 
   }
