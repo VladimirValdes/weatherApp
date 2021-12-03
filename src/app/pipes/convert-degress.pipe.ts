@@ -9,7 +9,6 @@ export class ConvertDegressPipe implements PipeTransform {
     let fh = 0;
 
     if ( convert ) {
-      console.log('°F')
       fh = (celcius * 1.8 ) + 32;
       return Math.round(fh)+ '°F';
     } else {

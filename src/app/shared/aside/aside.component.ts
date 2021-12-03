@@ -22,7 +22,6 @@ export class AsideComponent implements OnInit {
 
   getPlaces( term: string ){
 
-    console.log( term );
     this.mapBoxService.getPlace(term).subscribe( places => {
       this.places = places.features;
     })
@@ -34,7 +33,6 @@ export class AsideComponent implements OnInit {
 
     this.mapBoxService.coords.emit( coordinates );
     this.sidebarService.showMenu();
-    console.log(`CITY ${ city.text}`)
   }
 
 }

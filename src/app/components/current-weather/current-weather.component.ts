@@ -36,7 +36,6 @@ export class CurrentWeatherComponent implements OnInit, OnChanges {
       if ( changes.coordinate && changes.coordinate.currentValue ) {
 
         if ( this.coordinate.lat !== 0) {
-            console.log(this.coordinate)
           this.getCurrentWeather( this.coordinate.lat, this.coordinate.lon);
           
         }

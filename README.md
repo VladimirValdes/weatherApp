@@ -1,28 +1,78 @@
-# Appnews
+ <!-- Please update value in the {}  -->
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+<h1 align="center">Weather App</h1>
 
-## Development server
+<div align="center">
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f1e26046-39d3-4136-b11b-cbde0b7f40f6/deploy-status)](https://apprecipes1.netlify.app/)
 
-## Code scaffolding
+</div>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+<!-- TABLE OF CONTENTS -->
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Table of Contents
 
-## Running end-to-end tests
+- [Overview](#overview)
+- [Built With](#built-with)
+- [Resources](#Resources)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
+<!-- OVERVIEW -->
 
-## Further help
+## Overview
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# weatherApp
+![screenshot](src/assets/images/appG.gif)
+
+This app was built with the purpose to better my programming skills, and this is a challenge from [devChallenges](https://devchallenges.io/).
+
+My experience to develop this project was great, I learned how to use Weather API by [OpenWeatherMap](https://openweathermap.org/api) and how to use Mapbox Geocoding API by [Mapbox](https://docs.mapbox.com/api/overview/) I learned a lot of working with these APIs.
+
+### Built With
+
+<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
+
+
+  - Angular
+  - SCSS
+  - Typescript
+  - BEM (block__element--modifier)
+  - Mobile-first workflow
+
+
+
+## Resources
+These are some resources that I used to develop the app.
+
+<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
+- [Challenge by devchallenge](https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv)
+- [ Weather API ](https://openweathermap.org/api)
+- [ Geocoding API ](https://docs.mapbox.com/api/search/geocoding/)
+- [Useful Sass (SCSS) media query mixins](https://glennmccomb.com/articles/useful-sass-scss-media-query-mixins-for-bootstrap/)
+
+
+
+## How To Use
+
+<!-- Example: -->
+
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/VladimirValdes/weatherApp
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ ng serve
+```
+
+
+<!-- ## Contact
+
+- Website [your-website.com](https://{your-web-site-link})
+- GitHub [@your-username](https://{github.com/your-usermame})
+- Twitter [@your-twitter](https://{twitter.com/your-username}) -->
